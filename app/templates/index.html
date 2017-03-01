@@ -1,0 +1,19 @@
+﻿{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}INDEX{% endblock %}
+{% block head %}
+    {{super()}}
+    <script src="http://oa.smhc.org.cn/defaultroot/scripts/plugins/security/security.js" ></script>
+    <script type="text/javascript">
+        function a1(){
+            alert(RSAUtils.encryptedString(RSAUtils.getKeyPair("010001", "",
+            "0086dd23d3e1fb5660e83468945e851c666d63512b799c4e29694bf54dc7877f1e9787531161c5bad76a16e497f8273136b6336d4919f8d7786e023b4a8b23d1f80a9a524210acfd2b504b4a02043c9d68f51a22ec4c111e2890f185955197301e8089f9bfe047e0e1a84d81d3b1c3f19cf43633264681a0cc60d2812bcd441001"),
+            encodeURIComponent('1234567890-=')))
+        }
+    </script>
+{% endblock %}
+{% block body %}
+    <h1>Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}!</h1>
+    <input type="button" value="tanchuang" name="tanchuang" onclick="javascript:a1();" />
+    {{ wtf.quick_form(form) }}
+{% endblock %}
