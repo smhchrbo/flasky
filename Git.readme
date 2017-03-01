@@ -1,0 +1,15 @@
+#查看状态
+$ git status
+
+
+#添加所有文件
+$ git add .
+
+# 提交 
+$ git commit -m '???????'
+
+#查看状态
+$ git status
+
+#同步到github服务器
+$ git push origin master
