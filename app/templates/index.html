@@ -15,7 +15,10 @@
 {% block body %}
 {% block page_content %}
     <div class="page-header">
-        <h1>Hello, {{ name }}!</h1>
+        <h1>Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}!</h1>
+        {% if not known %}<p>pleased to see you!</p>
+        {% else %}<p>nice to see you again!</p>
+        {% endif %}
     </div>
 {% endblock %}
     {{ wtf.quick_form(form) }}
