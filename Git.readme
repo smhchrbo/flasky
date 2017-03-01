@@ -1,4 +1,4 @@
-#查看状态
+﻿#查看状态
 $ git status
 
 
@@ -13,3 +13,6 @@ $ git status
 
 #同步到github服务器
 $ git push origin master
+
+#从github浅复制最新版本的flasky
+$ git clone --depth=1 git@github.com:smhchrbo/flasky.git
