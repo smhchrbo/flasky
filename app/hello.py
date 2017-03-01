@@ -1,4 +1,4 @@
-from flask import Flask,request,redirect,abort,render_template,session,url_for
+from flask import Flask,request,redirect,abort,render_template,session,url_for,flash
 from flask_script import  Manager
 from flask_bootstrap import Bootstrap
 from flask_moment import  Moment
@@ -26,10 +26,13 @@ def index():
     pwd = None
     form =NameForm()
     if form.validate_on_submit():
+        old_name =session.get('name')
+        if old_name is not None and old_name !=form.name.data:
+            flash('welcome')       
         session['name'] = form.name.data
         session['pwd'] = form.pwd.data
-
         return redirect(url_for('index'))
+    
     return render_template("index.html",form = form,name = session.get('name'),pwd = session.get('pwd'))
 
 @app.route("/user/<name>")
