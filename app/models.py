@@ -1,3 +1,4 @@
+'''数据库模型'''
 from  . import db
 
 class Role(db.Model):
